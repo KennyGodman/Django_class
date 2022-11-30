@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+   Index page
+{% endblock %}
+{% block content %}
+
+<h1>Welcome to My Apps</h1>
+    <img src="{% static "posts/images/img.png" %}" alt="Love Picture">
+<ul>
+    {% for post in posts %}
+        <li><a href="{% url  "djangoProject1:post-detail" post_id=post.id %}" target="_blank" >{{post.title | title}}</a></li>
+    {% endfor %}
+</ul>
+     {% include "posts/includes/footer.html" with active_page="index"%}
+
+{% endblock %}
+
